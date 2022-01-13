@@ -4,7 +4,8 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const path = require("path");
 
 module.exports = {
-  entry: ["./src/index.js"],
+  context: path.resolve(__dirname, "src"),
+  entry: ["./index.js"],
   output: {
     filename: "[name].[chunkhash].js",
     path: path.resolve(__dirname, "./dist"),
@@ -24,6 +25,19 @@ module.exports = {
           { loader: "css-loader" },
         ],
       },
+      {
+        test: /\.scss$/,
+        exclude: /node_modules/,
+        use: [
+          { loader: MiniCssExtractPlugin.loader },
+          { loader: "css-loader" },
+          { loader: "sass-loader" },
+        ],
+      },
+      {
+        test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
+        type: "asset/resource",
+      },
     ],
   },
   plugins: [
@@ -31,14 +45,12 @@ module.exports = {
       filename: "index.html",
       template: "index.html",
       scriptLoading: "blocking",
-      hash: true,
     }),
     new MiniCssExtractPlugin(),
     new CleanWebpackPlugin(),
   ],
   devServer: {
     historyApiFallback: true,
-    open: true,
     compress: true,
     hot: true,
     port: 8080,
