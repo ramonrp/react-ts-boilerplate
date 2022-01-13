@@ -1,2 +1,2 @@
 //Entry point for webpack
-import "../mystyles.css";
+import "./mystyles.scss";
