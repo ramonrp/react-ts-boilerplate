@@ -2,6 +2,8 @@ const { merge } = require("webpack-merge");
 const common = require("./webpack.common");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const Dotenv = require("dotenv-webpack");
+const path = require("path");
+
 module.exports = merge(common, {
   mode: "development",
   module: {
@@ -11,7 +13,16 @@ module.exports = merge(common, {
         exclude: /node_modules/,
         use: [
           { loader: MiniCssExtractPlugin.loader },
-          { loader: "css-loader" },
+          {
+            loader: "css-loader",
+            options: {
+              modules: {
+                exportLocalsConvention: "camelCase",
+                localIdentName: "[path][name]__[local]--[hash:base64:5]",
+                localIdentContext: path.resolve(__dirname, "src"),
+              },
+            },
+          },
         ],
       },
       {
@@ -19,7 +30,16 @@ module.exports = merge(common, {
         exclude: /node_modules/,
         use: [
           { loader: MiniCssExtractPlugin.loader },
-          { loader: "css-loader" },
+          {
+            loader: "css-loader",
+            options: {
+              modules: {
+                exportLocalsConvention: "camelCase",
+                localIdentName: "[path][name]__[local]--[hash:base64:5]",
+                localIdentContext: path.resolve(__dirname, "src"),
+              },
+            },
+          },
           { loader: "sass-loader" },
         ],
       },
@@ -28,7 +48,7 @@ module.exports = merge(common, {
   plugins: [
     new MiniCssExtractPlugin(),
     new Dotenv({
-      path: "./dev.env",
+      path: "./prod.env",
     }),
   ],
   devtool: "eval-source-map",
