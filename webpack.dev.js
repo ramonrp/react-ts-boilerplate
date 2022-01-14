@@ -1,7 +1,7 @@
 const { merge } = require("webpack-merge");
 const common = require("./webpack.common");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-
+const Dotenv = require("dotenv-webpack");
 module.exports = merge(common, {
   mode: "development",
   module: {
@@ -25,7 +25,12 @@ module.exports = merge(common, {
       },
     ],
   },
-  plugins: [new MiniCssExtractPlugin()],
+  plugins: [
+    new MiniCssExtractPlugin(),
+    new Dotenv({
+      path: "./dev.env",
+    }),
+  ],
   devtool: "eval-source-map",
   devServer: {
     historyApiFallback: true,
