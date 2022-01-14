@@ -6,9 +6,9 @@ const path = require("path");
 module.exports = {
   context: path.resolve(__dirname, "src"),
   resolve: {
-    extensions: [".js", ".jsx"],
+    extensions: [".js", ".jsx", ".ts", ".tsx"],
   },
-  entry: ["./index.js"],
+  entry: ["./index.tsx"],
   output: {
     filename: "[name].[chunkhash].js",
     path: path.resolve(__dirname, "./dist"),
@@ -16,7 +16,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.jsx?$/,
+        test: /\.tsx?$/,
         exclude: /node_modules/,
         loader: "babel-loader",
       },

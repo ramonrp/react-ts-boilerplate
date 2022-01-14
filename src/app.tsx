@@ -4,7 +4,7 @@ import logo from "./public/logo_1.png";
 export const App = () => {
   return (
     <>
-      <h1>Hello React</h1>
+      <h1>Hello React and TS</h1>
       <div className="red-background">RD</div>
       <div id="img-container">
         <img src={logo}></img>
