@@ -9,24 +9,7 @@ module.exports = merge(common, {
   module: {
     rules: [
       {
-        test: /\.css$/,
-        exclude: /node_modules/,
-        use: [
-          { loader: "style-loader" },
-          {
-            loader: "css-loader",
-            options: {
-              modules: {
-                exportLocalsConvention: "camelCase",
-                localIdentName: "[path][name]__[local]--[hash:base64:5]",
-                localIdentContext: path.resolve(__dirname, "src"),
-              },
-            },
-          },
-        ],
-      },
-      {
-        test: /\.scss$/,
+        test: /\.s?css$/,
         exclude: /node_modules/,
         use: [
           { loader: "style-loader" },
