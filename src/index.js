@@ -1,7 +1,6 @@
 //Entry point for webpack
-import "./mystyles.scss";
-import logo from "./public/logo_1.png";
-const img = document.createElement("img");
-img.src = logo;
-const imgContainer = document.getElementById("img-container");
-imgContainer.appendChild(img);
+import React from "react";
+import ReactDOM from "react-dom";
+import { App } from "./app";
+
+ReactDOM.render(<App />, document.getElementById("root"));
