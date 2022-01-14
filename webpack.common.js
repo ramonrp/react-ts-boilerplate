@@ -1,6 +1,5 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const path = require("path");
 
 module.exports = {
@@ -21,23 +20,6 @@ module.exports = {
         loader: "babel-loader",
       },
       {
-        test: /\.css$/,
-        exclude: /node_modules/,
-        use: [
-          { loader: MiniCssExtractPlugin.loader },
-          { loader: "css-loader" },
-        ],
-      },
-      {
-        test: /\.scss$/,
-        exclude: /node_modules/,
-        use: [
-          { loader: MiniCssExtractPlugin.loader },
-          { loader: "css-loader" },
-          { loader: "sass-loader" },
-        ],
-      },
-      {
         test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
         exclude: /node_modules/,
         type: "asset/resource",
@@ -54,13 +36,6 @@ module.exports = {
       template: "index.html",
       scriptLoading: "blocking",
     }),
-    new MiniCssExtractPlugin(),
     new CleanWebpackPlugin(),
   ],
-  devServer: {
-    historyApiFallback: true,
-    compress: true,
-    hot: true,
-    port: 8080,
-  },
 };
