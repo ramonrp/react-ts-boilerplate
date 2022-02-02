@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import styles from './mystyles.module.scss';
+import styles from './mystyles.module.css';
 import logo from './public/logo_1.png';
 
 export const App = () => {

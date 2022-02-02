@@ -7,6 +7,7 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx', '.ts', '.tsx'],
   },
+
   entry: ['./index.tsx'],
   output: {
     filename: '[name].[chunkhash].js',
