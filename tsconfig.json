@@ -3,6 +3,7 @@
     "target": "es6",
     "module": "es6",
     "moduleResolution": "node",
+    "noEmit": true,
     "declaration": false,
     "noImplicitAny": false,
     "allowSyntheticDefaultImports": true,
