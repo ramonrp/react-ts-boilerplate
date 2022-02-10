@@ -1,13 +1,16 @@
-import { useState } from 'react';
+import * as React from 'react';
 import styles from './mystyles.module.css';
 import logo from './public/logo_1.png';
 
 export const App = () => {
-  const [counter, setCounter] = useState(0);
+  const [counter, setCounter] = React.useState<number>(0);
   const handleIncrease = () => {
     setCounter(counter + 1);
   };
   console.log(process.env.EXAMPLE_VARIABLE);
+  React.useEffect(() => {
+    console.log(counter);
+  }, [counter]);
   return (
     <>
       <h1>Hello React and TS With Fast Refresh</h1>
