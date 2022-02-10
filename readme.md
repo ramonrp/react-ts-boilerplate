@@ -18,13 +18,26 @@
 - [Babel](https://babeljs.io/)
   - preset-env
   - preset react
+  - babel/preset-typescript
 - React
   - [new JSX transform](https://reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html) (no need to import react for using jsx)
   - with react support (also with [react-refresh](https://www.npmjs.com/package/@pmmmwh/react-refresh-webpack-plugin))
 - Typescript support
 - [Prettier](https://www.npmjs.com/package/prettier)
 - [Webpack dev server](https://webpack.js.org/configuration/dev-server/)
-- [Husky](https://www.npmjs.com/package/husky) prehooks for prettier format.
+- [Husky](https://www.npmjs.com/package/husky) prehooks for prettier format and lint with lint-staged
+- [eslint](https://www.npmjs.com/package/eslint) config:
+  - eslint:recommended
+  - react-hooks/recommended
+  - eslint-config-prettier
+  - typescript-eslint/recommended
+  - testing-library/react
+  - jest-dom/recommended
+- [Jest](https://www.npmjs.com/package/jest) config:
+  - js-dom
+  - testing-library/jest-dom/extend-expect
+  - indentity-obj-proxy for css modules
+  - jest typehead plugin
 
 ## Instalation
 
